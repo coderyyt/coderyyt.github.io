@@ -20,28 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="搭建一个免服务器、公网可访问的个人博客">
+    <meta name="description" content="HTML篇">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello Blog">
-<meta property="og:url" content="http://example.com/2022/08/01/Hello-Blog/index.html">
+<meta property="og:title" content="HTML学习笔记">
+<meta property="og:url" content="http://example.com/2022/09/12/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="欢迎回来ヾ(^▽^*)))">
-<meta property="og:description" content="搭建一个免服务器、公网可访问的个人博客">
+<meta property="og:description" content="HTML篇">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-31T16:00:07.000Z">
-<meta property="article:modified_time" content="2022-09-12T03:01:55.570Z">
+<meta property="article:published_time" content="2022-09-12T05:21:33.000Z">
+<meta property="article:modified_time" content="2022-09-12T05:27:51.011Z">
 <meta property="article:author" content="N">
-<meta property="article:tag" content="Hexo入门">
+<meta property="article:tag" content="HTML">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/08/01/Hello-Blog/">
+<link rel="canonical" href="http://example.com/2022/09/12/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/01/Hello-Blog/","path":"2022/08/01/Hello-Blog/","title":"Hello Blog"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/09/12/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/","path":"2022/09/12/HTML学习笔记/","title":"HTML学习笔记"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hello Blog | 欢迎回来ヾ(^▽^*)))</title>
+<title>HTML学习笔记 | 欢迎回来ヾ(^▽^*)))</title>
   
 
 
@@ -103,7 +103,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -116,6 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%96%E6%9E%90%E5%85%83%E7%B4%A0%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">剖析元素结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#head"><span class="nav-number">2.</span> <span class="nav-text">head</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#img%E5%85%83%E7%B4%A0"><span class="nav-number">3.</span> <span class="nav-text">img元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a%E5%85%83%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">a元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iframe%E5%85%83%E7%B4%A0%EF%BC%88%E7%90%86%E8%A7%A3%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">iframe元素（理解）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0"><span class="nav-number">6.</span> <span class="nav-text">不常用元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7"><span class="nav-number">7.</span> <span class="nav-text">全局属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E5%AE%9E%E4%BD%93"><span class="nav-number">8.</span> <span class="nav-text">字符实体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL"><span class="nav-number">9.</span> <span class="nav-text">URL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E8%AF%AD%E4%B9%89%E5%8C%96"><span class="nav-number">10.</span> <span class="nav-text">元素语义化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SEO%E4%BC%98%E5%8C%96"><span class="nav-number">11.</span> <span class="nav-text">SEO优化</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -188,7 +189,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/01/Hello-Blog/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/12/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/v2-b694129601c596c05aaf1e73c7677614_r.jpg">
@@ -201,12 +202,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hello Blog | 欢迎回来ヾ(^▽^*)))">
+      <meta itemprop="name" content="HTML学习笔记 | 欢迎回来ヾ(^▽^*)))">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello Blog<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/_posts/Hello-Blog.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          HTML学习笔记<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/_posts/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -216,15 +217,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-08-01 00:00:07" itemprop="dateCreated datePublished" datetime="2022-08-01T00:00:07+08:00">2022-08-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-12 11:01:55" itemprop="dateModified" datetime="2022-09-12T11:01:55+08:00">2022-09-12</time>
+      <time title="创建时间：2022-09-12 13:21:33 / 修改时间：13:27:51" itemprop="dateCreated datePublished" datetime="2022-09-12T13:21:33+08:00">2022-09-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -232,7 +227,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Hexo%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">Hexo入门</span></a>
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">前端入门</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/HTML%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">HTML入门</span></a>
         </span>
     </span>
 
@@ -243,7 +242,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
+      <span>929</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -261,90 +260,128 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <center>搭建一个免服务器、公网可访问的个人博客</center>
-
-
+        <center>HTML篇</center>
 
 
 
 <span id="more"></span>
 
-<p>用hexo搭建一个静态博客<br>使用系统环境： <strong>window</strong>，命令符号为<strong>英文</strong></p>
-<p>搭配视频观看最佳：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click&vd_source=dcfe3e22db522481d9d43f04aa3ab615"><strong>手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo_哔哩哔哩_bilibili</strong></a></p>
-<p>先<strong>安装node.js</strong>环境，安装完后继续</p>
-<p>运行cmd，推荐用<strong>“以管理员身份运行”</strong><br><strong>设置淘宝镜像源，国内镜像下载速度慢</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h3 id="剖析元素结构"><a href="#剖析元素结构" class="headerlink" title="剖析元素结构"></a>剖析元素结构</h3><p>什么是元素</p>
+<ul>
+<li>开始标签</li>
+<li>结束标签</li>
+<li>内容</li>
+<li>属性</li>
+<li>元素的嵌套</li>
+</ul>
+<h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3><ul>
+<li>元数据(配置信息)<ul>
+<li>meta -&gt; charset -&gt; utf-8</li>
+<li>title -&gt; 标题</li>
+</ul>
+</li>
+</ul>
+<h3 id="img元素"><a href="#img元素" class="headerlink" title="img元素"></a>img元素</h3><ul>
+<li><p>两个属性</p>
+<ul>
+<li><p>src</p>
+</li>
+<li><p>alt: </p>
+<ul>
+<li>作用一：图片加载失败，显示这段文本</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>地址</p>
+<ul>
+<li>网络地址</li>
+<li>本地地址<ul>
+<li>绝对路径</li>
+<li>相对路径</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="a元素"><a href="#a元素" class="headerlink" title="a元素"></a>a元素</h3><ul>
+<li>两个属性:<ul>
+<li>href</li>
+<li>target（目的）<ul>
+<li>_self    自己  默认值，当前窗口</li>
+<li>_blank    空白  在新的窗口</li>
+<li>_parent    在父窗口中（iframe元素）</li>
+<li>_top    在顶层窗口（iframe元素）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>本页面的锚点链接</li>
+<li>a元素除了可以跳转目标外，还可以是压缩包（下载该压缩包）、邮箱（mailto:邮箱地址）</li>
+</ul>
+<h3 id="iframe元素（理解）"><a href="#iframe元素（理解）" class="headerlink" title="iframe元素（理解）"></a>iframe元素（理解）</h3><ul>
+<li><p>嵌套网页</p>
+</li>
+<li><p>某些网页禁止嵌套(原理)</p>
+<ul>
+<li>请求头中被设置同源</li>
+</ul>
+</li>
+<li><p>和a元素结合(target另外两个值)</p>
+<ul>
+<li>_self	在边框内中打开</li>
+<li>_blank  在新的窗口打开</li>
+<li>_parent  在ifram多层嵌套中，打开当前位置的上一级</li>
+<li>_top  在ifram多层嵌套中，打开顶层的位置 body</li>
+</ul>
+</li>
+</ul>
+<h3 id="不常用元素"><a href="#不常用元素" class="headerlink" title="不常用元素"></a>不常用元素</h3><ul>
+<li>strong</li>
+<li>i</li>
+<li>code</li>
+<li>br</li>
+<li>…</li>
+</ul>
+<h3 id="全局属性"><a href="#全局属性" class="headerlink" title="全局属性"></a>全局属性</h3><ul>
+<li>id	作为a元素的锚点，也可以通过css、js来选择和访问特定的元素</li>
+<li>class  通过css、js来选择和访问特定的元素</li>
+<li>style  元素添加内联样式</li>
+<li>title  提示符</li>
+</ul>
+<h3 id="字符实体"><a href="#字符实体" class="headerlink" title="字符实体"></a>字符实体</h3><ul>
+<li>为什么需要字符实体;</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&amp;nbsp;// 空格</span><br><span class="line">&amp;lt;// &lt;</span><br><span class="line">&amp;gt;// &gt;</span><br></pre></td></tr></table></figure>
 
-<p>设置后<strong>验证</strong>是否成功</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config get registry</span><br></pre></td></tr></table></figure>
-
-<p>如果成功，则显示刚才设置的对应地址</p>
-<p>在cmd命令行中输入：<strong>mkdir 盘符:\文件名</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> E:\blog</span><br></pre></td></tr></table></figure>
-
-<p>接着切换新建文件的路径</p>
-<p>默认盘符是C盘：  <strong>先切换到盘符  再cd具体路径</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ E:</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure>
 
 
-
-<p>这里需要先<strong>安装git</strong>环境，安装完后继续</p>
-<p>然后初始化</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
-
-<p>初始化后，生成本地localhost地址	在浏览器中输入该地址进行访问</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-<p>停止localhost地址，继续(ctrl+c两次)</p>
-<p>写文章也是在cmd页面这儿输入，先来new一个博客文章</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n <span class="string">&quot;Hello Blog&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>后显示Created地址，将当前地址cd到对应Created地址</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> <span class="built_in">source</span>/_posts/</span><br></pre></td></tr></table></figure>
-
-
-
-<p>这里先<strong>安装notepad</strong>，安装完后继续</p>
-<p>打开文章文本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ notepad Hello Blog.md</span><br></pre></td></tr></table></figure>
-
-<p>在里面写入内容，写好后先退回之前的路径</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ../..</span><br></pre></td></tr></table></figure>
-
-<p>退回后先清理</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
-
-<p>再生成</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-
-<p>生成后开启本地服务地址，就可以看到文章内容了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>部署到github上：</strong></p>
-<p>登录github，点击右上角的”+”号，点击”New repository”</p>
-<p>Repository name项：输入昵称，要求为：github用户名 + .github.io</p>
-<p>Description项：项目描述、说明</p>
-<p>填好后点击”Create repository”项</p>
-<p>回到刚才的命令行窗口，blog\下，安装git部署插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
-
-<p>安装完后配置**_config.yml**</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ notepad _config.yml</span><br></pre></td></tr></table></figure>
-
-<p>Ctrl键+F，搜索<strong>Deployment</strong>关键字</p>
-<p>注意：映射表后值前面的“:”<strong>是英文且有一个空格</strong></p>
-<p>在文件的对应位置中编写<strong>type、repo</strong>(前面github部署最后显示的页面，内有一段HTTPS)和<strong>branch</strong>项</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/<span class="string">&#x27;github用户名&#x27;</span>/github用户名+<span class="string">&#x27;.github.io.git&#x27;</span></span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
-
-<p>编辑好文件后，回到<strong>命令行</strong>设置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email <span class="string">&quot;xxx&quot;</span></span><br><span class="line">$ git config --global user.name <span class="string">&quot;xxx&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>设置好后邮箱和用户名后，再<strong>部署</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
-<p>这样就可以使用<strong>公网访问博客</strong>了，地址为: <strong>github用户名+’.github.io’</strong></p>
+<h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><ul>
+<li>URL的格式:<ul>
+<li>协议:&#x2F;&#x2F;主机:端口&#x2F;路径&#x2F;文件名?查询#片段id</li>
+</ul>
+</li>
+<li>和URI的区别:<ul>
+<li>URI:标志符</li>
+<li>URL: 定位符(网络地址)</li>
+</ul>
+</li>
+</ul>
+<h3 id="元素语义化"><a href="#元素语义化" class="headerlink" title="元素语义化"></a>元素语义化</h3><ul>
+<li>用正确的元素去做正确的事情</li>
+</ul>
+<p>理论上div可以做其他元素的样式，如h1标签，在开发中尽量不要这么做，不方便区分、维护</p>
+<p>标签语义化的好处：</p>
+<p>方便维护，减少开发者沟通成本，语音合成工具正确识别网页元素的用途，作正确的反应，有利于SEO</p>
+<h3 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h3><ul>
+<li>SEO原理<ul>
+<li>SEO，搜索引擎优化，提高搜索排名靠前</li>
+<li>元素语义化可以提高搜索排名靠前</li>
+</ul>
+</li>
+<li>过程&#x2F;流程</li>
+</ul>
+<p>爬虫在索引区抓取网页 -&gt; 将抓取到的网页存到临时库中处理 -&gt; 临时库可以读取爬到的网页 -&gt; 符合规则存储在索引去，不符合规则清理 -&gt; 在索引区中进行分类、归档、排序，然后将结果反馈给用户</p>
 
     </div>
 
@@ -354,17 +391,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Hexo%E5%85%A5%E9%97%A8/" rel="tag"># Hexo入门</a>
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2022/09/12/JavaScript%E4%B8%AD%E7%9A%84%E9%97%AD%E5%8C%85/" rel="prev" title="JavaScript中的闭包">
+                  <i class="fa fa-chevron-left"></i> JavaScript中的闭包
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/08/02/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9AJS%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/" rel="next" title="学习记录：JS基础篇（一）">
-                  学习记录：JS基础篇（一） <i class="fa fa-chevron-right"></i>
+                <a href="/2022/09/12/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="CSS学习笔记">
+                  CSS学习笔记 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
