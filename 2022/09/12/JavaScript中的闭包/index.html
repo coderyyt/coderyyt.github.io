@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Javascript闭包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript中的闭包">
+<meta property="og:url" content="http://example.com/2022/09/12/JavaScript%E4%B8%AD%E7%9A%84%E9%97%AD%E5%8C%85/index.html">
+<meta property="og:site_name" content="欢迎回来ヾ(^▽^*)))">
+<meta property="og:description" content="Javascript闭包">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-12T05:05:34.000Z">
+<meta property="article:modified_time" content="2022-09-12T05:20:33.809Z">
+<meta property="article:author" content="N">
+<meta property="article:tag" content="JS">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/09/12/JavaScript%E4%B8%AD%E7%9A%84%E9%97%AD%E5%8C%85/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/09/12/JavaScript%E4%B8%AD%E7%9A%84%E9%97%AD%E5%8C%85/","path":"2022/09/12/JavaScript中的闭包/","title":"JavaScript中的闭包"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaScript中的闭包 | 欢迎回来ヾ(^▽^*)))</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">欢迎回来ヾ(^▽^*)))</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AD%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">函数作为参数使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E8%BF%94%E5%9B%9E%E5%80%BC%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.1.</span> <span class="nav-text">函数作为返回值使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">数组中的函数使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">高阶函数执行过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AD%E5%8C%85%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.4.</span> <span class="nav-text">闭包到底是什么</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="N"
+      src="/images/v2-b694129601c596c05aaf1e73c7677614_r.jpg">
+  <p class="site-author-name" itemprop="name">N</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/coderyyt" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;coderyyt" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1967692757@qq.com" title="E-Mail → mailto:1967692757@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/12/JavaScript%E4%B8%AD%E7%9A%84%E9%97%AD%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/v2-b694129601c596c05aaf1e73c7677614_r.jpg">
+      <meta itemprop="name" content="N">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎回来ヾ(^▽^*)))">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaScript中的闭包 | 欢迎回来ヾ(^▽^*)))">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript中的闭包<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/_posts/JavaScript%E4%B8%AD%E7%9A%84%E9%97%AD%E5%8C%85.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-09-12 13:05:34 / 修改时间：13:20:33" itemprop="dateCreated datePublished" datetime="2022-09-12T13:05:34+08:00">2022-09-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">前端入门</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/JS%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">JS入门</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <center>Javascript闭包</center>
+
+
+
+<span id="more"></span>
+
+<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>JS中函数是<strong>一等公民</strong>，使用<strong>非常灵活</strong>。可以作为参数、返回值使用</p>
+<p>Java中对象是<strong>一等公民</strong></p>
+<h2 id="函数作为参数使用"><a href="#函数作为参数使用" class="headerlink" title="函数作为参数使用"></a>函数作为参数使用</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将函数作为另外一个函数的参数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">aaaaa</span>) &#123;</span><br><span class="line">  <span class="title function_">aaaaa</span>()<span class="comment">// 形参aaaaa指向bar，这里的形参+()表示函数名+()，也就是调用函数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;bar&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>(bar)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 案例</span></span><br><span class="line"><span class="comment">// 形参，两个参数和一个函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">calc</span>(<span class="params">num1, num2, calcFn</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">calcFn</span>(num1, num2));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">num1, num2</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num1 + num2</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sub</span>(<span class="params">num1, num2</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num1 - num2</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> m = <span class="number">30</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="number">20</span></span><br><span class="line"><span class="title function_">calc</span>(m, n, add)</span><br><span class="line"><span class="title function_">calc</span>(m, n, sub)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="函数作为返回值使用"><a href="#函数作为返回值使用" class="headerlink" title="函数作为返回值使用"></a>函数作为返回值使用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// js语法允许函数内部再定义函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;bar&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> bar <span class="comment">// 返回bar函数</span></span><br><span class="line">  <span class="comment">// return bar() // 执行函数，将函数的返回值返回出去</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>()() <span class="comment">// 等同fn()</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="title function_">foo</span>() <span class="comment">// 执行foo，将bar函数返回，再赋值</span></span><br><span class="line"><span class="title function_">fn</span>() <span class="comment">// 执行bar函数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">makerAdder</span>(<span class="params">count</span>) &#123;</span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">num</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> count + num</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> add</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> add5 = <span class="title function_">makerAdder</span>(<span class="number">5</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">add5</span>(<span class="number">6</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">add5</span>(<span class="number">10</span>));</span><br><span class="line"><span class="keyword">var</span> add10 = <span class="title function_">makerAdder</span>(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">var</span> add100 = <span class="title function_">makerAdder</span>(<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 高阶函数：一个函数接收另一个函数做参数，或该函数返回另外一个函数作为返回值的函数，就称为高阶函数</span></span><br><span class="line"><span class="comment">// 函数的参数也是函数，或函数内部的函数作为返回值返回</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="数组中的函数使用"><a href="#数组中的函数使用" class="headerlink" title="数组中的函数使用"></a>数组中的函数使用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 高阶函数(一般参数有三：item,index,arr)</span></span><br><span class="line"><span class="comment">// 1.filter:过滤</span></span><br><span class="line"><span class="keyword">var</span> nums = [<span class="number">10</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">100</span>, <span class="number">55</span>]</span><br><span class="line"><span class="keyword">var</span> newValue1 = nums.<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">item</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(newValue1);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.map:映射</span></span><br><span class="line"><span class="keyword">var</span> nums = [<span class="number">10</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">100</span>, <span class="number">55</span>]</span><br><span class="line"><span class="keyword">var</span> newValue2 = nums.<span class="title function_">map</span>(<span class="keyword">function</span>(<span class="params">item</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> item + <span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(newValue2);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.forEach:迭代</span></span><br><span class="line"><span class="keyword">var</span> nums = [<span class="number">10</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">100</span>, <span class="number">55</span>]</span><br><span class="line">nums.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">item</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(item);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.find/findIndex(开发使用比较多)</span></span><br><span class="line"><span class="comment">// es6~es12</span></span><br><span class="line"><span class="keyword">var</span> nums = [<span class="number">10</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">100</span>, <span class="number">55</span>]</span><br><span class="line"><span class="keyword">var</span> newValue4 = nums.<span class="title function_">find</span>(<span class="keyword">function</span>(<span class="params">item</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> item === <span class="number">11</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(newValue4);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> friends = [</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&quot;why&quot;</span>, <span class="attr">age</span>: <span class="number">19</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&quot;kobe&quot;</span>, <span class="attr">age</span>: <span class="number">39</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&quot;mike&quot;</span>, <span class="attr">age</span>: <span class="number">15</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&quot;jack&quot;</span>, <span class="attr">age</span>: <span class="number">24</span> &#125;</span><br><span class="line">]</span><br><span class="line"><span class="keyword">var</span> findFriend = friends.<span class="title function_">find</span>(<span class="keyword">function</span>(<span class="params">item</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> item.<span class="property">name</span> === <span class="string">&#x27;jack&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(findFriend);</span><br><span class="line"><span class="keyword">var</span> friendIndex = friends.<span class="title function_">findIndex</span>(<span class="keyword">function</span>(<span class="params">item</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> item.<span class="property">name</span> == <span class="string">&#x27;mike&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(friendIndex);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 5.reduce:累加(理解)</span></span><br><span class="line"><span class="keyword">var</span> nums = [<span class="number">10</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">100</span>, <span class="number">55</span>]</span><br><span class="line"><span class="comment">//基础累加</span></span><br><span class="line"><span class="keyword">var</span> total = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; nums.<span class="property">length</span>; i++) &#123;</span><br><span class="line">  total += nums[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(total);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 该方法与其他不同，有三个形参，1是上个值(return的值),2是item数组的值，3是初始化的值</span></span><br><span class="line"><span class="keyword">var</span> total = nums.<span class="title function_">reduce</span>(<span class="keyword">function</span>(<span class="params">prevValue,item</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> prevValue + item</span><br><span class="line">&#125;,<span class="number">0</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(total);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="高阶函数执行过程"><a href="#高阶函数执行过程" class="headerlink" title="高阶函数执行过程"></a>高阶函数执行过程</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;bar&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> bar</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn = <span class="title function_">foo</span>()</span><br><span class="line"><span class="title function_">fn</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="闭包到底是什么"><a href="#闭包到底是什么" class="headerlink" title="闭包到底是什么"></a>闭包到底是什么</h3><p><strong>自由变量</strong>：在函数中可以访问外层作用域的某些变量（上层作用域的变量）</p>
+<p>闭包与函数最大的区别在于，当捕捉闭包的时候，它的<strong>自由变量</strong>会在捕捉时被确定，即使脱离时的上下文，它也能照常运行</p>
+<p>闭包由两部分组成：函数+可以访问的<strong>自由变量</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">&quot;foo&quot;</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;bar&quot;</span>, name);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> bar</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="title function_">foo</span>()</span><br><span class="line"><span class="title function_">fn</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>总结：</p>
+<p>一个普通函数，如果可以访问外层作用域的<strong>自由变量</strong>，那么该函数就是闭包</p>
+<p>从广义的角度来说：JS中的函数就是闭包</p>
+<p>从狭义的角度来说：JS中的函数，如果访问了作用域的变量，才是一个闭包</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JS/" rel="tag"># JS</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/12/Ajax%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="Ajax学习笔记">
+                  <i class="fa fa-chevron-left"></i> Ajax学习笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/09/12/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="HTML学习笔记">
+                  HTML学习笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">N</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">39k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">35 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
